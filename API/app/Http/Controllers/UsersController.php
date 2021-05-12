@@ -143,6 +143,8 @@ class UsersController extends apiController
     function create(Request $request){
         try{
             $newUser = new Users();
+            $newAccount = new Account();
+            $newRelation = new Relation();
             /* valida que no exista esa misma identificacion */
             $validate_identification = $newUser::all()->where('identification','=',$request->identification);
             if($validate_identification->count()>0){
@@ -156,6 +158,8 @@ class UsersController extends apiController
                 "identification"=> "required",
                 "email"=> "required",
                 "pass"=> "required",
+                "type"=> "required",
+                "state"=> "required",
             ]);
             /* se arma el objeto user */
             $newUser->first_name = $request->first_name;
@@ -165,8 +169,21 @@ class UsersController extends apiController
             #guarda encriptada la contraseña
             $newUser->pass = \Hash::make($request->pass);
 
+            /* datos de cuenta */
+            $newAccount->value = 0;
+            $newAccount->type  = $request->type > 1 ? 0 : $request->type;
+            $newAccount->state = $request->state > 3 ? 0 : $request->state; 
+
             if($newUser->save()){
-                return \Response::json(['user create']);
+                if($newAccount->save()){
+                    /* datos de relacion */
+                    $newRelation->id_user = $newUser->id;
+                    $newRelation->id_account = $newAccount->id;
+                    if($newRelation->save()){
+                        return \Response::json(['user create and account new']);
+                    }
+                }
+                return \Response::json(['relation not created']);
             }else{
                 return \Response::json(['user not created'], 500);
             }
