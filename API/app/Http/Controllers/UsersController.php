@@ -302,7 +302,7 @@ class UsersController extends apiController
             if(!isset($request->amount))
                 return \Response::json(['amount not exist']);
             
-            if($request->amount == 0)
+            if($request->amount <= 0)
                 return \Response::json(['the amount must be greater than 0']);
                 
             /* se agrega el monto */
