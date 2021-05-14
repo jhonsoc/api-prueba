@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "b9d8ecaf-b770-4cd2-aa90-83e469703d37",
+		"name": "prueba api banco",
+		"description": "apis usadas para el api del banco- prueba php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "lista de usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/list/bank/users/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"list",
+								"bank",
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "camilo2",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "leon2",
+									"type": "text"
+								},
+								{
+									"key": "identification",
+									"value": "10306235581",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "prueba@correo.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/bank/create/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"create",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "camilo",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "leon",
+									"type": "text"
+								},
+								{
+									"key": "identification",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "pruebas@correos.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/v1/bank/update/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"update",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/v1/bank/delete/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"delete",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transferir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identification_send",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "account_send",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "identification_receives",
+									"value": "517148422",
+									"type": "text"
+								},
+								{
+									"key": "account_receives",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/bank/account/transfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"account",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recargar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identification",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/bank/account/recharge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"bank",
+								"account",
+								"recharge"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publico",
+			"item": [
+				{
+					"name": "lista de usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identification_send",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "account_send",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "identification_receives",
+									"value": "517148422",
+									"type": "text"
+								},
+								{
+									"key": "account_receives",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/list/bank/users/list",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"list",
+								"bank",
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "camilo2",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "leon2",
+									"type": "text"
+								},
+								{
+									"key": "identification",
+									"value": "10306235581025",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "prueba@correo.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/bank/create/user",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"bank",
+								"create",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "camilo",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "leon",
+									"type": "text"
+								},
+								{
+									"key": "identification",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "pruebas@correos.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/bank/update/user",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"bank",
+								"update",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/bank/delete/user/1",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"bank",
+								"delete",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transferir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identification_send",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "account_send",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "identification_receives",
+									"value": "517148422",
+									"type": "text"
+								},
+								{
+									"key": "account_receives",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "1025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/bank/account/transfer",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"bank",
+								"account",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recargar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "identification",
+									"value": "1030000",
+									"type": "text"
+								},
+								{
+									"key": "account",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-camilo-leon.000webhostapp.com/API/public/api/v1/bank/account/recharge",
+							"protocol": "https",
+							"host": [
+								"api-camilo-leon",
+								"000webhostapp",
+								"com"
+							],
+							"path": [
+								"API",
+								"public",
+								"api",
+								"v1",
+								"bank",
+								"account",
+								"recharge"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "env",
+			"value": "localhost:8000"
+		}
+	]
+}

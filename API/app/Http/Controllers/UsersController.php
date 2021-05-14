@@ -394,7 +394,7 @@ class UsersController extends apiController
                 return \Response::json(['amount not exist']);
             
             /* se valida que el monto sea mayor a 0 y aparte que se valide que puede transferir esa cantidad de dinero */
-            if($request->amount == 0)
+            if($request->amount <= 0)
                 return \Response::json(['the amount must be greater than 0']);
  
             if(doubleval($request->amount) >= $transfer_send->value)
